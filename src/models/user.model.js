@@ -71,9 +71,9 @@ userSchema.methods.generateAccessToken = function () {
   return jwt.sign(
     {
       _id: this._id,
-      email: this.email,
-      userName: this.userName,
-      fullName: this.fullName,
+      // email: this.email,
+      // userName: this.userName,
+      // fullName: this.fullName,
     },
     process.env.ACCESS_TOKEN_SECRET,
     {
@@ -86,6 +86,10 @@ userSchema.methods.generateRefreshToken = function () {
   return jwt.sign(
     {
       _id: this._id,
+      // actual we need to send only id but for knowledge we can send all the things
+      // userName: this.userName,
+      // email: this.email,
+      // fullName: this.fullName,
     },
     process.env.REFRESH_TOKEN_SECRET,
     {
